@@ -4,11 +4,14 @@ module.exports = function(server, express){
 
   //generic config
   server.configure(function(){
+    server.set('views', __dirname + '/../src/views');
+    server.set('view engine', 'jade');
+    //server.set('view options', { layout: false });
     server.use(express.logger());
     server.use(express.bodyParser());
     server.use(express.methodOverride());
     server.use(server.router);
-    server.use(express.static(__dirname + '/public'));
+    server.use(express.static(__dirname + '/../public'));
   });
 
   //env specific config
@@ -18,7 +21,7 @@ module.exports = function(server, express){
   });
 
   server.configure('production', function(){
-    server.use(express.errorHandler());    
+    server.use(express.errorHandler());
     server.mongoose.connect('mongodb://junk/');
   });
 

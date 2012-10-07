@@ -1,0 +1,19 @@
+doctype 5
+html
+    head
+        title #{title}
+        link(rel='stylesheet', href='style/css/lib/bootstrap.min.css')
+        script(data-main="js/init/init.js", src='js/lib/require/require.js')
+
+    body        
+        div.topbar.navbar.navbar-fixed-top
+            div.fill
+                div.container
+                    a(href='/').brand #{title}
+
+        block mainContent
+
+        footer
+            p 
+                | Node.js MVC template   
+                a(href='#')(target='_blank')

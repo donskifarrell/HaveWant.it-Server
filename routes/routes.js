@@ -2,6 +2,14 @@ module.exports = function(server, controllers){
   console.log('Setting up routes');
   itemProvider = controllers.items;
 
-  server.get('/item', itemProvider.getMessages);
-  server.post('/item', itemProvider.postMessage);
+  server.get('/', function(req, res){
+    res.render('index.jade', { title: 'HaveWant.it' });
+  });
+
+  server.get('/:user/:item', itemProvider.getMessages);
+  server.post('/:user/:item', itemProvider.postMessage);
+
+  // For mobile app:
+  server.get('/app/item', itemProvider.getMessages);
+  server.post('/app/item', itemProvider.postMessage);
 };

@@ -1,10 +1,11 @@
 {
-  "name": "hello-world",
-  "description": "hello world test app",
+  "name": "HaveWant.it",
+  "description": "HaveWant.it web site",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "express": "3.x",
+    "jade": ">= 0.27",
     "mongodb": ">= 1.x",
     "mongoose": "3.x"
   }

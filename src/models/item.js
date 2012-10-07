@@ -12,4 +12,4 @@ module.exports = function(mongoose) {
 
   this.model = mongoose.model(itemsCollection, itemsSchema);
   return this;
-};  
+};
