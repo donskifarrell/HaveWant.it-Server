@@ -1,4 +1,5 @@
-
+// TODO: May remove this, as not sure i'm going to use no.de!
+// or not, can maybe look for either Prod or Dev configs..
 var envConfig;
 try {
 	// Usually we check for envConfig.js in current directory.
