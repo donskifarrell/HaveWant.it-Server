@@ -7,11 +7,22 @@ module.exports = function(mongoose) {
 		// This function is responsible for returning all entries for the Message model
 		getMessages: function(req, res, next) {
 			// This headers comply with CORS and allow us to server our response to any origin
-			res.header("Access-Control-Allow-Origin", "*"); 
+			res.header("Access-Control-Allow-Origin", "*");
 			res.header("Access-Control-Allow-Headers", "X-Requested-With");
 			// .find() without any arguments, will return all results
-			itemModel.find().execFind(function (arr,data) {
-				res.send(data);
+			itemModel.find().execFind(function(arr, documents) {
+				switch (req.params.format) {
+					// When json, generate suitable data
+					case 'json':
+						res.send(documents.map(function(d) {
+							return d.__doc;
+						}));
+					break;
+
+					// Else render a database template (this isn't ready yet)
+					default:
+						res.render('documents/index.jade');
+				}
 			});
 		},
 
@@ -19,7 +30,7 @@ module.exports = function(mongoose) {
 			res.header("Access-Control-Allow-Origin", "*");
 			res.header("Access-Control-Allow-Headers", "X-Requested-With");
 			// Create a new item model, fill it up and save it to Mongodb
-			var item = new itemModel(); 
+			var item = new itemModel();
 			item.user = req.params.user;
 			item.date = new Date();
 			item.save(function () {

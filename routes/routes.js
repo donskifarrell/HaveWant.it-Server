@@ -8,8 +8,4 @@ module.exports = function(server, controllers){
 
   server.get('/:user/:item', itemProvider.getMessages);
   server.post('/:user/:item', itemProvider.postMessage);
-
-  // For mobile app:
-  server.get('/app/item', itemProvider.getMessages);
-  server.post('/app/item', itemProvider.postMessage);
 };
