@@ -1,7 +1,7 @@
 // user.js
 
 module.exports = function(mongoose) {
-  var usersCollection = 'items';
+  var usersCollection = 'users';
   var Schema = mongoose.Schema;
   var ObjectId = Schema.ObjectId;
 

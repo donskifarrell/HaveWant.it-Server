@@ -21,7 +21,9 @@ module.exports = function(mongoose) {
 
 					// Else render a database template (this isn't ready yet)
 					default:
-						res.render('documents/index.jade');
+						res.render('errors/404', {
+							title: 'Home'
+						});
 				}
 			});
 		},

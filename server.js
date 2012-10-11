@@ -37,8 +37,11 @@ var controllers = {};
 controllers.items = require('./src/controllers/items')(server.mongoose);
 controllers.users = require('./src/controllers/users')(server.mongoose);
 
-// Setup site routing
-var routes = require('./src/routes/routes')(server, controllers);
+// Internal Page Handlers
+var sessions = require('./src/routes/Sessions')(server, controllers);
+var static_pages = require('./src/routes/StaticPages')(server);
+var user_pages = require('./src/routes/UserPages')(server, controllers);
+var public_pages = require('./src/routes/PublicPages')(server, controllers);
 
 // Start listening for requests!
 server.listen(envConf.port, null);
