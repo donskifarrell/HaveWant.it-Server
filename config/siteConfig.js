@@ -13,13 +13,6 @@ module.exports = function(server, express, sessionStore, envConf){
   // Setup EveryAuth
   var authentication = new require('../lib/authentication.js')(envConf);
 
-  // Generic config
-  server.configure(function(){
-    server.set('views', __dirname + './../src/views');
-    server.set('view engine', 'jade');
-    server.use(express.methodOverride());
-  });
-
   // Asset Management Config
   //var assetConfig = require('./assetConfig')(assetHandler, envConf);
   // TODO: Add auto reload for CSS/JS/templates when in development
@@ -40,21 +33,31 @@ module.exports = function(server, express, sessionStore, envConf){
 
   // Middleware Config
   server.configure(function() {
+    server.set('views', __dirname + './../src/views');
+    server.set('view engine', 'jade');
     server.use(express.bodyParser());
-    server.use(express.cookieParser({
-      'secret': envConf.sessionSecret
-    }));
+    server.use(express.cookieParser());
     // server.use(assetsMiddleware);
     server.use(express.session({
-      'store': sessionStore
+      'store': sessionStore,
+      'cookie': { maxAge: 120000 },
+      'secret': envConf.sessionSecret
     }));
     server.use(authentication.middleware.auth());
     server.use(authentication.middleware.normalizeUserData());
-    server.use(express['static'](__dirname + './../public', { maxAge: 86400000 }));
+    server.use(express.static(__dirname + './../public', { maxAge: 86400000 }));
     server.use(server.router);
     server.use(express.logger({
       format: ':response-time ms - :date - :req[x-real-ip] - :method :url :user-agent / :referrer'
     }));
+    server.use(function(req, res, next){
+      //res.locals.assetsCacheHashes = assetsMiddleware.cacheHashes;
+      next();
+    });
+    server.use(function(req, res, next){
+      res.locals.session = req.session;
+      next();
+    });
 
     // Maybe should go in routes as it redirects.
     server.use(function(err, req, res, next){
@@ -66,16 +69,6 @@ module.exports = function(server, express, sessionStore, envConf){
       }
     });
   });
-
-  // TODO: Template helpers
-/*  server.dynamicHelpers({
-    'assetsCacheHashes': function(req, res) {
-      return assetsMiddleware.cacheHashes;
-    },
-    'session': function(req, res) {
-      return req.session;
-    }
-  });*/
 
   // Error Logging Config
   server.configure('development', function(){

@@ -5,15 +5,15 @@
   "author" : "Donal Farrell <donal@donalfarrell.com>",
   "private": true,
   "dependencies": {
-    "connect" : ">=1.6.0",
-    "connect-assetmanager" : ">=0.0.21",
-    "connect-assetmanager-handlers" : ">=0.0.17",
-    "express": "3.x",    
-    "socket.io" : ">=0.7.8",
-    "connect-redis" : ">=1.0.7",
-    "jade": ">= 0.27",
-    "everyauth" : ">=0.3",
-    "mongodb": ">= 1.x",
-    "mongoose": "3.x"
+    "connect" : "*",
+    "connect-assetmanager" : "*",
+    "connect-assetmanager-handlers" : "*",
+    "express": "*",    
+    "socket.io" : "*",
+    "jade": "*",
+    "everyauth" : "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "session-mongoose": "*"
   }
 }

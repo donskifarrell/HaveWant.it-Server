@@ -14,13 +14,16 @@ var envConf = require('./config/getEnvConfig');
 var connect = require('connect');
 var express = require('express');
 
-// Setup Redis Session store
-var RedisStore = require('connect-redis')(express);
-var sessionStore = new RedisStore();
-
 // Initialise Server
 var server = module.exports = express();
 server.mongoose = require('mongoose');
+
+// Setup SessionStore
+var mongoStore = require('session-mongoose');
+var sessionStore = new mongoStore({
+		url: 'mongodb://localhost:27017/havewant',
+		interval: 120000
+	});
 
 // Setup Site Config
 var siteConfig = require('./config/siteConfig.js')(
@@ -32,6 +35,7 @@ var siteConfig = require('./config/siteConfig.js')(
 // Setup view controllers along with their models for MongoDB
 var controllers = {};
 controllers.items = require('./src/controllers/items')(server.mongoose);
+controllers.users = require('./src/controllers/users')(server.mongoose);
 
 // Setup site routing
 var routes = require('./src/routes/routes')(server, controllers);
