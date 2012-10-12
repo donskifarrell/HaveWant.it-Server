@@ -5,9 +5,9 @@ module.exports = function(mongoose) {
 
 	return {
 		New: function() {
-			return new userModel();
+			//return new userModel();
 		},
 
-		Db: userModel
+		//Db: userModel
 	};
 };

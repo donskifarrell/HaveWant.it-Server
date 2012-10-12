@@ -1,8 +1,22 @@
 extends ../layout
+.page
+  h2 Log In
+  p
+    a.button(href='/users/new') Create an account &rarr;
+  form.users#login(method='post', action='/sessions')
+    div
+	  label Title:
+	  input(name='d[title]', value=d.title || '')
+	div
+	  label Note:
+	  div
+	    textarea(name='d[data]')= d.data
+	div
+	  input(type='submit', value='Save')
+    div
+      label(for='remember_me') Remember me:
+      input#remember_me(type='checkbox', name='remember_me')
+    div
+      input(type='submit', value='Log In')
 
-block mainContent
-	div.hero-unit
-		h1 Heading
 
-	div.content
-		h1 Login
