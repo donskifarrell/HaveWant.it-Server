@@ -37,6 +37,8 @@ var controllers = {};
 controllers.items = require('./src/controllers/items')(server.mongoose);
 controllers.users = require('./src/controllers/users')(server.mongoose);
 
+var util = require('./src/routes/Util')(controllers.users);
+
 // Internal Page Handlers
 var sessions = require('./src/routes/Sessions')(server, controllers);
 var static_pages = require('./src/routes/StaticPages')(server);

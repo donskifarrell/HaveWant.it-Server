@@ -6,6 +6,7 @@ module.exports = function(mongoose) {
 	return {
 		// This function is responsible for returning all entries for the Message model
 		getMessages: function(req, res, next) {
+			console.log('Get messages');
 			// This headers comply with CORS and allow us to server our response to any origin
 			res.header("Access-Control-Allow-Origin", "*");
 			res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -29,6 +30,7 @@ module.exports = function(mongoose) {
 		},
 
 		postMessage: function(req, res, next) {
+			console.log('post messages');
 			res.header("Access-Control-Allow-Origin", "*");
 			res.header("Access-Control-Allow-Headers", "X-Requested-With");
 			// Create a new item model, fill it up and save it to Mongodb
