@@ -12,12 +12,18 @@ module.exports = function(Users){
             next();
           } else {
             console.log('Couldnt find user');
-            res.redirect('/sessions/new');
+            res.redirect('/Login', {
+              title: 'Login',
+              user: Users.addNew()
+            });
           }
         });
       } else {
         console.log('No Session Id set');
-        res.redirect('/sessions/new');
+        res.redirect('/Login', {
+          title: 'Login',
+          user: Users.addNew()
+        });
       }
     }
   };

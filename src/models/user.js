@@ -30,6 +30,7 @@ module.exports = function(mongoose) {
 		.get(function() { return this._password; });
 
 	User.method('authenticate', function(plainText) {
+		console.log('Authenticating user: ' + plainText);
 		return this.encryptPassword(plainText) === this.hashed_password;
 	});
 
@@ -46,7 +47,9 @@ module.exports = function(mongoose) {
 	}
 
 	User.pre('save', function(next) {
+		console.log('preSave');
 		if (!validatePresenceOf(this.password)) {
+			console.log('Invalid pass');
 			next(new Error('Invalid password'));
 		} else {
 			next();
