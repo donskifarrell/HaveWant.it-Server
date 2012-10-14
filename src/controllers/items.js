@@ -22,8 +22,8 @@ module.exports = function(mongoose) {
 
 					// Else render a database template (this isn't ready yet)
 					default:
-						res.render('errors/404', {
-							title: 'Home'
+						res.render('items/items', {
+							title: 'Items'
 						});
 				}
 			});
