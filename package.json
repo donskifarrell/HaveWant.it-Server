@@ -14,6 +14,7 @@
     "everyauth" : "*",
     "mongodb": "*",
     "mongoose": "*",
-    "session-mongoose": "*"
+    "session-mongoose": "*",
+    "node-sass": "*"
   }
 }
