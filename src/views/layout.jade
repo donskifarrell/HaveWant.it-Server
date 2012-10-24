@@ -2,39 +2,36 @@ doctype 5
 html
     head
         title #{title}
-        link(rel='stylesheet', href='stylesheets/app.css')
         link(rel='stylesheet', href='stylesheets/foundation.css')
+        link(rel='stylesheet', href='stylesheets/app.css')
+        link(rel='stylesheet', href='stylesheets/view.css')
 
     body
         div.container
             header.row
-                div.two.columns
-                    img(src='http://placehold.it/200x120')
+                div.four.columns
+                    a(href='/')
+                        img(src='http://placehold.it/200x100')
                 div.eight.columns
-                    h1.centered The Foundation Times
-                    h5.centered December 1, 2011
-                div.two.columns
-                    img(src='http://placehold.it/200x120')
+                    h1.centered#havetitle HaveWant.it
 
-        div.row
-            div.twelve.columns
-                dl.tabs
-                    dd
-                        a.active(href='#') All News
-                    dd
-                        a(href='#') Llamas
+            .row
+                .twelve.columns
+                    hr
 
 
-        block mainContent
+            block mainContent
 
-        footer.row
-            .seven.columns
-                p
-                    strong Foundation Times
-            .five.columns
-                p
-                    a(href='#') All News |
-                    a(href='#') ppppp |
-                    a(href='#') dbbbbbbbg |
-                    a(href='#') oooooooo |
-                    a(href='#') llllllllll
+            .row
+                .twelve.columns
+                    hr
+
+            footer.row  
+                .seven.columns
+                    p
+                        strong HaveWant.it
+                .five.columns
+                    p
+                        a(href='#') About | 
+                        a(href='#') Code | 
+                        a(href='#') AHHH

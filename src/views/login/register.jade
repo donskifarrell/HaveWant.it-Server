@@ -1,16 +1,18 @@
 extends ../layout
 
 block mainContent
-	h2 Register
-
-	form.users(method='post', action='/Register')
-		div
-			label Email:
-			input(name='user[email]', value=user.email || '')
-		div
-			label Password:
-			input(name='user[password]', value=user.password || '', type='password')
-		div
-			input(type='submit', value='Register')
-
-
+	.row
+		.two.columns
+		.eight.columns
+			.panel#registerPanel
+				h3 Register
+				hr
+				form.users(method='post', action='/Register')
+					.row
+						.five.columns
+							label Email:
+							input(name='user[email]', value=user.email || '', type='text')
+							label Password:
+							input(name='user[password]', value=user.password || '', type='password')
+							input(type='submit', value='Register')
+		.two.columns
