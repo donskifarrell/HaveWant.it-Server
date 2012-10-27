@@ -2,17 +2,15 @@ extends ../layout
 
 block mainContent
 	.row
-		section(role='main')
+		.nine.columns.push-three
 			.row
-				.eight.columns
+				.twelve.columns
 					h5 8 columns!
-				.four.columns
-					h5 4 columns!
-		section(role='complementary')
+		.three.columns.pull-nine
 			dl.nice.vertical.tabs
 				dd.active
-					a(href='#vertical1') VerticalTab1
+					a(href='#vertical1') All
 				dd
-					a(href='#vertical2') VerticalTab2
+					a(href='#vertical2') Electronics
 				dd
-					a(href='#vertical3') VerticalTab3
+					a(href='#vertical3') Clothes
