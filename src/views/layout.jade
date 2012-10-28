@@ -1,36 +1,220 @@
-doctype 5
-html
-    head
-        title #{title}
-        link(rel='stylesheet', href='stylesheets/foundation.css')
-        link(rel='stylesheet', href='stylesheets/app.css')
-        link(rel='stylesheet', href='stylesheets/view.css')
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
 
-    body  
-        div.container
-            header.row
-                div.four.columns
-                    a(href='/')
-                        img(src='http://placehold.it/200x100')
-                div.eight.columns
-                    h1.centered#havetitle HaveWant.it
+    meta(name='keywords', content='#')
+    meta(name='description', content='#')
+    meta(name='author', content='#')
+    meta(name='copyright', content='#')
+    title Foundation Documentation: Tabs
 
-            .row
-                .twelve.columns
-                    hr
+    // Included CSS Files 
+    link(rel='stylesheet', href='../style/foundation.top-bar.css')
+    link(rel='stylesheet', href='../style/zurb.mega-drop.css')
+    link(rel='stylesheet', href='../style/presentation.css')
 
-            block mainContent
-            
-            .row
-                .twelve.columns
-                    hr
+  body.off-canvas
+    // ZURBar 
+    .container.top-bar.home-border
+      .attached
+        .name(onclick='void(0);')
+          span
+            a(href='#') HaveWant.it
+            a.toggle-nav(href='#')
+        ul.right
+          li.show-for-small
+            a(href='#') Home
+          li
+            a(href='#') Features
+          li
+            a(href='#') Add-ons
+          li
+            a(href='#') Case Studies
+          li
+            a(href='#') Docs
+          li
+            a(href='#') GitHub
+          li.download
+            a.small.button.src-download(href='#') Download
 
-            footer.row  
-                .seven.columns
-                    p
-                        strong HaveWant.it
-                .five.columns
-                    p
-                        a(href='#') About | 
-                        a(href='#') Code | 
-                        a(href='#') AHHH
+    #megaDrop.container
+      .mobile-main-nav-padding
+        .row.top
+          .eight.columns
+            a(href='#')
+              h4
+                img(alt='Zurb-logo-drop-down', src='#')
+                | Design Great Products Faster
+          .four.columns
+            .right.links
+              a(href='#') About
+              | |
+              a(href='#') ZURBlog 
+              | |
+              a(href='#') Sitemap
+        .row
+          .tablet-padding
+            #services.three.columns.property
+              a(href='#')
+                h4 Services
+                p
+                  | We'll help you get online products designed better and faster than ever before and set you up for future iterations.
+                span Let's Work Together →
+            .show-on-phones
+              br
+              br
+            #foundation.three.columns.property
+              a(href='#')
+                h4 Foundation
+                p
+                  | We developed the most advanced responsive front-end framework in the world and made it free-for-all.
+                span Discover Foundation →
+            .show-on-phones
+              br
+              br
+            #apps.three.columns.property
+              a(href='#')
+                h4
+                  | ZURB
+                  span.apps apps
+                p
+                  | A powerful design suite that will help you prototype, iterate and collect feedback on your product design.
+                span Get Started →
+            .show-on-phones
+              br
+              br
+            #expo.three.columns.property
+              a(href='#')
+                h4 Expo
+                p
+                  | We think anyone can design great products and we will share our thoughts, ideas and design resources to show you how to do it.
+                span Learn More →
+    //ZURBar 
+    header#header.row
+      .eight.columns
+        h1
+          a(href='#') Your Items
+        h4.subheader Everything you have.
+        .show-for-small.menu-action
+          a#sidebarButton.sidebar-button.small.secondary.button(href='#sidebar')
+            svg#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='18px', height='18px', viewbox='0 0 48 48', enable-background='new 0 0 48 48', xml:space='preserve')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='8.907', x2='48', y2='8.907')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='24.173', x2='48', y2='24.173')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='39.439', x2='48', y2='39.439')
+              | Menu
+    .row
+      section(role='main')
+        .row
+          .eight.columns
+            h3 Tabs
+            h4.subheader
+              | Tabs are very versatile both as organization and navigational constructs. With the base Foundation package, tabs in the markup specified below are already hooked up — no extra work required.
+            hr
+            .panel
+              h5 JavaScript Dependency
+              p
+                | The
+                strong jquery.foundation.tabs.js
+                | is required to make the tabs work.  Once included it can be initialized like so:
+          .four.columns
+            .panel.secondary.hide-on-phones
+              h4 Get Foundation
+              p
+                | Grab the style of Foundation that works for you, whether that's SCSS or straight CSS, everything or just bits and pieces.
+              p
+                a.button.mobile.src-download(href='#') Install Foundation
+
+            .jobs.hide-on-phones
+              h5 Score an awesome product engineering or design job. Check out:
+              a#via(href='#')
+                | via
+                span.jobs-link ZURBjobs
+      section#sidebar(role='complementary')
+        dl.tabs.vertical.hide-on-phones
+          dd
+            a(href='#') All Items
+          dd
+            a(href='#') Electronics
+          dd
+            a(href='#') Add Category
+    .row
+      .twelve.columns
+        hr
+    // Das Footer 
+    footer.row
+      section.five.columns
+        h6
+          strong Made by ZURB
+        p
+          | Foundation is made by
+          a(href='#') ZURB
+          | , a product design company in Campbell, California. We've put more than 14 years of experience building web products, services and websites into this framework.
+          a(href='#') Foundation Info and Goodies →
+      section.three.columns
+        h6
+          strong Using Foundation?
+        p
+          | Let us know how you're using Foundation and we might feature you as an example!
+          a(href='#') Get in touch →
+      section.four.columns
+        h6
+          strong Need some help?
+        p
+          | For answers or help visit the
+          a(href='#') Support page
+          | .
+        ul.link-list
+          li
+            a(href='#', target='_blank')
+              span.glyph.social d
+          li
+            a(href='#', target='_blank')
+              span.glyph.social l
+          li
+            a(href='#', target='_blank')
+              span.glyph.social e
+    #copyright
+      .row
+        .four.columns
+          p Site content © 2012 ZURB, inc.
+        .eight.columns
+          ul.link-list.right
+            li
+              a(href='#') Home
+            li
+              a(href='#') Download
+            li
+              a(href='#') Documentation
+            li
+              a(href='#') Install
+            li
+              a(href='#') About
+            li
+              a(href='#') Subscribe to the ZURBlog
+    #navModal.reveal-modal
+      h3 Foundation Docs
+      dl.nice.tabs.vertical
+        dd
+          a(href='#') Getting Started
+        dd
+          a(href='#') Grid
+        dd
+          a(href='#') Buttons
+        dd
+          a(href='#') Forms
+        dd
+          a(href='#') Layout
+        dd
+          a(href='#') UI
+        dd
+          a(href='#') Orbit
+        dd
+          a(href='#') Reveal
+        dd
+          a(href='#') Gems
+        dd
+          a(href='#') QA
+      a.close-reveal-modal ×
+    script(src='../js/marketing_docs.js')
+    script(src='../js/zurb.mega-drop.js')
