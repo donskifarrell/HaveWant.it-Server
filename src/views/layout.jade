@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='stylesheet', href='../style/presentation.css')
 
   body.off-canvas
-    // ZURBar 
+    // NAV BAR 
     .container.top-bar.home-border
       .attached
         .name(onclick='void(0);')
@@ -26,17 +26,9 @@ html(lang='en')
           li.show-for-small
             a(href='#') Home
           li
-            a(href='#') Features
-          li
-            a(href='#') Add-ons
-          li
-            a(href='#') Case Studies
-          li
-            a(href='#') Docs
-          li
-            a(href='#') GitHub
+            a(href='#') Search
           li.download
-            a.small.button.src-download(href='#') Download
+            a.small.button.src-download(href='#') Login
 
     #megaDrop.container
       .mobile-main-nav-padding
@@ -44,53 +36,43 @@ html(lang='en')
           .eight.columns
             a(href='#')
               h4
-                img(alt='Zurb-logo-drop-down', src='#')
-                | Design Great Products Faster
+                | Organise and sell your belongings.
           .four.columns
             .right.links
               a(href='#') About
               | |
-              a(href='#') ZURBlog 
+              a(href='#') Blog 
               | |
               a(href='#') Sitemap
         .row
-          .tablet-padding
+          .tablet-padding.centre
             #services.three.columns.property
               a(href='#')
-                h4 Services
+                h4 Have.it
                 p
-                  | We'll help you get online products designed better and faster than ever before and set you up for future iterations.
-                span Let's Work Together →
+                  | Easily categorise your personal belongings. Add images and videos along with a full description.
+                span See how →
             .show-on-phones
               br
               br
             #foundation.three.columns.property
               a(href='#')
-                h4 Foundation
+                h4 Want.it
                 p
-                  | We developed the most advanced responsive front-end framework in the world and made it free-for-all.
-                span Discover Foundation →
+                  | See what other people are offering. Search from within your local area and by category.
+                span Search →
             .show-on-phones
               br
               br
             #apps.three.columns.property
               a(href='#')
-                h4
-                  | ZURB
-                  span.apps apps
+                h4 Got.it
                 p
-                  | A powerful design suite that will help you prototype, iterate and collect feedback on your product design.
+                  | Make your belongings available for purchase and advertise on eBay, twitter and facebook. 
                 span Get Started →
             .show-on-phones
               br
               br
-            #expo.three.columns.property
-              a(href='#')
-                h4 Expo
-                p
-                  | We think anyone can design great products and we will share our thoughts, ideas and design resources to show you how to do it.
-                span Learn More →
-    //ZURBar 
     header#header.row
       .eight.columns
         h1
@@ -106,30 +88,12 @@ html(lang='en')
     .row
       section(role='main')
         .row
-          .eight.columns
-            h3 Tabs
+          .ten.columns
             h4.subheader
-              | Tabs are very versatile both as organization and navigational constructs. With the base Foundation package, tabs in the markup specified below are already hooked up — no extra work required.
+              | Click on the item for a full description or open the media gallery by clicking on the image thumbnail.
+            a.small.button.src-download(href='#') Add New Item
             hr
-            .panel
-              h5 JavaScript Dependency
-              p
-                | The
-                strong jquery.foundation.tabs.js
-                | is required to make the tabs work.  Once included it can be initialized like so:
-          .four.columns
-            .panel.secondary.hide-on-phones
-              h4 Get Foundation
-              p
-                | Grab the style of Foundation that works for you, whether that's SCSS or straight CSS, everything or just bits and pieces.
-              p
-                a.button.mobile.src-download(href='#') Install Foundation
 
-            .jobs.hide-on-phones
-              h5 Score an awesome product engineering or design job. Check out:
-              a#via(href='#')
-                | via
-                span.jobs-link ZURBjobs
       section#sidebar(role='complementary')
         dl.tabs.vertical.hide-on-phones
           dd
@@ -137,26 +101,28 @@ html(lang='en')
           dd
             a(href='#') Electronics
           dd
-            a(href='#') Add Category
+            a(href='#') Add New Category
     .row
       .twelve.columns
         hr
-    // Das Footer 
     footer.row
       section.five.columns
         h6
-          strong Made by ZURB
+          strong Made by SpottingGroup
         p
-          | Foundation is made by
-          a(href='#') ZURB
-          | , a product design company in Campbell, California. We've put more than 14 years of experience building web products, services and websites into this framework.
-          a(href='#') Foundation Info and Goodies →
+          | HaveWant.it is made by
+          a(href='#') SpottingGroup
+          | , a small company based in London, UK. Design of the website is borrowed heavily from the 
+          a(href='#') ZURB 
+          | Foundation.
+          a(href='#') More Info →
       section.three.columns
         h6
-          strong Using Foundation?
+          strong Legal
         p
-          | Let us know how you're using Foundation and we might feature you as an example!
-          a(href='#') Get in touch →
+          | By using this site, you agree to the 
+          a(href='#') terms and conditions.
+          | We do not sell on your information.
       section.four.columns
         h6
           strong Need some help?
@@ -177,44 +143,26 @@ html(lang='en')
     #copyright
       .row
         .four.columns
-          p Site content © 2012 ZURB, inc.
+          p Site content © 2012 SpottingGroup, ltd.
         .eight.columns
           ul.link-list.right
             li
               a(href='#') Home
             li
-              a(href='#') Download
-            li
-              a(href='#') Documentation
-            li
-              a(href='#') Install
-            li
               a(href='#') About
             li
-              a(href='#') Subscribe to the ZURBlog
+              a(href='#') Legal
+            li
+              a(href='#') Contact
     #navModal.reveal-modal
       h3 Foundation Docs
       dl.nice.tabs.vertical
-        dd
-          a(href='#') Getting Started
-        dd
-          a(href='#') Grid
-        dd
-          a(href='#') Buttons
-        dd
-          a(href='#') Forms
-        dd
-          a(href='#') Layout
-        dd
-          a(href='#') UI
-        dd
-          a(href='#') Orbit
-        dd
-          a(href='#') Reveal
-        dd
-          a(href='#') Gems
-        dd
-          a(href='#') QA
+          dd
+            a(href='#') All Items
+          dd
+            a(href='#') Electronics
+          dd
+            a(href='#') Add New Category
       a.close-reveal-modal ×
     script(src='../js/marketing_docs.js')
     script(src='../js/zurb.mega-drop.js')
