@@ -8,6 +8,7 @@
     "connect" : "*",
     "connect-assetmanager" : "*",
     "connect-assetmanager-handlers" : "*",
+    "asset-rack" : "*",
     "express": "*",    
     "socket.io" : "*",
     "jade": "*",
