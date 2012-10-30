@@ -3,33 +3,9 @@ module.exports = function(server, express, sessionStore, envConf){
   var config = this;
   
   // Setup Asset Management
+  var connectAssets = require('connect-assets')();
   var assetManager = require('connect-assetmanager');
   var assetHandler = require('connect-assetmanager-handlers');
-
-  // Setup Socket.io server
-  var httpServer = require('http').createServer(server);
-  var socketIo = new require('../lib/socket-io-server.js')(httpServer, sessionStore);
-
-  // Setup EveryAuth
-  var authentication = new require('../lib/authentication.js')(envConf);
-
-  // Asset Management Config
-  //var assetConfig = require('./assetConfig')(assetHandler, envConf);
-  // TODO: Add auto reload for CSS/JS/templates when in development
-  /*
-    server.configure('development', function(){
-      assetConfig.js.files.push('jquery.frontend-development.js');
-      assetConfig.css.files.push('frontend-development.css');
-      [['js', 'updatedContent'], ['css', 'updatedCss']].forEach(function(group) {
-        assetConfig[group[0]].postManipulate['^'].push(function triggerUpdate(file, path, index, isLast, callback) {
-          callback(file);
-          // Need to look through dummy helpers code to see what this does!
-          dummyHelpers[group[1]]();
-        });
-      });
-    });
-  */
-  //var assetsMiddleware = assetManager(assetConfig);
 
   // Middleware Config
   server.configure(function() {
@@ -37,14 +13,12 @@ module.exports = function(server, express, sessionStore, envConf){
     server.set('view engine', 'jade');
     server.use(express.bodyParser());
     server.use(express.cookieParser());
-    // server.use(assetsMiddleware);
     server.use(express.session({
       'store': sessionStore,
       'cookie': { maxAge: 120000 },
       'secret': envConf.sessionSecret
     }));
-    server.use(authentication.middleware.auth());
-    server.use(authentication.middleware.normalizeUserData());
+    server.use(connectAssets);
     server.use(express.static(__dirname + './../public', { maxAge: 86400000 }));
     server.use(server.router);
     server.use(express.logger({

@@ -5,17 +5,16 @@
   "author" : "Donal Farrell <donal@donalfarrell.com>",
   "private": true,
   "dependencies": {
+    "coffee-script" : "*",
+    "less" : "*",
     "connect" : "*",
+    "connect-assets" : "*",
     "connect-assetmanager" : "*",
     "connect-assetmanager-handlers" : "*",
-    "asset-rack" : "*",
-    "express": "*",    
-    "socket.io" : "*",
+    "express": "*",
     "jade": "*",
-    "everyauth" : "*",
     "mongodb": "*",
     "mongoose": "*",
-    "session-mongoose": "*",
-    "node-sass": "*"
+    "session-mongoose": "*"
   }
 }

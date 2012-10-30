@@ -8,11 +8,12 @@ html(lang='en')
     meta(name='author', content='#')
     meta(name='copyright', content='#')
     title Foundation Documentation: Tabs
-
+    
     // Included CSS Files 
-    link(rel='stylesheet', href='../style/foundation.top-bar.css')
-    link(rel='stylesheet', href='../style/zurb.mega-drop.css')
-    link(rel='stylesheet', href='../style/presentation.css')
+    != css('lib/normalize')
+    != css('lib/zurb')
+    != css('lib/zurb.top-bar.css')
+    != css('lib/zurb.mega-drop.css')
 
   body.off-canvas
     // NAV BAR 
@@ -138,9 +139,11 @@ html(lang='en')
           dd
             a(href='#') Add New Category
       a.close-reveal-modal ×
-    script(src='../js/marketing_docs.js')
-    script(src='../js/zurb.mega-drop.js')
-    script(src='../js/jquery.js')
-    script(src='../js/underscore.js')
-    script(src='../js/backbone.js')
-    script(src='../js/app.js')
+    != js('lib/jquery/jquery')
+    != js('lib/jquery/jquery.imageready')
+    != js('lib/zurb/sizzle')
+    != js('lib/zurb/placeholder')
+    != js('lib/zurb/zurb.mega-drop')
+    != js('lib/backbone/underscore')
+    != js('lib/backbone/backbone')
+    != js('havewant')
