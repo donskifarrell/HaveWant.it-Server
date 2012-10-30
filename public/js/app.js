@@ -1,14 +1,14 @@
 (function ($) {
 	window.AppView = Backbone.View.extend({
-		el: $("#ItemsPage"),
-		template: _.template('<li>HAHSDASDAS</li>'),
+		el: $("#itemsSection"),
+		template: _.template("<div class=\"row item\"><div class=\"ten columns\"><h4 class=\"subheader\">An item yo</h4>			<a id=\"addNew\" href=\"#\" class=\"small button src-download\">Add New Item</a><hr></div></div>"),
 
 		events: {
 			"click #addNew":  "showPrompt"
 		},
 
 		showPrompt: function () {
-			var friend_name = prompt("Who is your friend?");
+			$(this.el).append(this.template());
 		}
 	});
 
