@@ -11,24 +11,27 @@ html(lang='en')
     
     // Included CSS Files 
     != css('lib/normalize')
-    != css('lib/zurb')
-    != css('lib/zurb.top-bar.css')
+    != css('lib/foundation.min')
     != css('lib/zurb.mega-drop.css')
+    != css('havewant') 
 
   body.off-canvas
     // NAV BAR 
-    .container.top-bar.home-border
-      .attached
-        .name(onclick='void(0);')
+    nav.top-bar
+      ul
+        li.name
           span
-            a(href='#') HaveWant.it
-            a.toggle-nav(href='#')
+            a.toggle-nav.open(href="#") HaveWant.it
+      section
         ul.right
-          li.show-for-small
+          li.divider
+          li
             a(href='#') Home
+          li.divider
           li
             a(href='#') Search
-          li.download
+          li.divider
+          li.has-button
             a.small.button.src-download(href='#') Login
 
     #megaDrop.container
@@ -77,10 +80,8 @@ html(lang='en')
 
     block mainContent
 
+    hr
     footer.row
-      .row
-       .twelve.columns
-         hr
       section.five.columns
         h6
           strong Made by SpottingGroup
@@ -139,11 +140,10 @@ html(lang='en')
           dd
             a(href='#') Add New Category
       a.close-reveal-modal ×
-    != js('lib/jquery/jquery')
-    != js('lib/zurb/modernizr.foundation')
-    != js('lib/zurb/sizzle')
-    != js('lib/zurb/placeholder')
+
+    != js('lib/zurb/foundation.min')
     != js('lib/zurb/zurb.mega-drop')
+    != js('lib/zurb/app')
     != js('lib/backbone/underscore')
     != js('lib/backbone/backbone')
     != js('havewant')
