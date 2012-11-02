@@ -11,28 +11,25 @@ html(lang='en')
     
     // Included CSS Files 
     != css('lib/normalize')
-    != css('lib/foundation.min')
-    != css('lib/zurb.mega-drop.css')
+    != css('lib/zurb')
+    != css('lib/zurb.mega-drop')
     != css('havewant') 
 
   body.off-canvas
-    // NAV BAR 
-    nav.top-bar
-      ul
-        li.name
+    .container.top-bar.home-border
+      .attached
+        .name(onclick='void(0);')
           span
-            a.toggle-nav.open(href="#") HaveWant.it
-      section
-        ul.right
-          li.divider
-          li
-            a(href='#') Home
-          li.divider
-          li
-            a(href='#') Search
-          li.divider
-          li.has-button
-            a.small.button.src-download(href='#') Login
+            a(href='#') HaveWant.it
+            a.toggle-nav(href='#')
+        section
+          ul.right
+            li.show-for-small
+              a(href='#') Home
+            li
+              a(href='#') Search
+            li.has-button
+              a.small.button.src-download(href='#') Login
 
     #megaDrop.container
       .mobile-main-nav-padding
