@@ -1,18 +1,30 @@
 extends ../layout
 
 block mainContent
-	.row
-		.two.columns
-		.eight.columns
-			.panel#loginPanel
-				h3 Login
-				hr
-				form.users(method='post', action='/Login')
-					.row
-						.five.columns
-							label Email:
-							input(name='user[email]', value=user.email || '', type='text')
-							label Password:
-							input(name='user[password]', value=user.password || '', type='password')
-							input(type='submit', value='Log In')
-		.two.columns
+    header#header.row
+      .eight.columns
+        h1
+          a(href='#') Login
+        h4.subheader Login to view your listings.
+        .show-for-small.menu-action
+          a#sidebarButton.sidebar-button.small.secondary.button(href='#sidebar')
+            svg#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='18px', height='18px', viewbox='0 0 48 48', enable-background='new 0 0 48 48', xml:space='preserve')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='8.907', x2='48', y2='8.907')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='24.173', x2='48', y2='24.173')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='39.439', x2='48', y2='39.439')
+              | Menu
+      .row
+        .two.columns
+        .six.columns
+            .panel#loginPanel
+                h3 Login
+                hr
+                form.users(method='post', action='/Login')
+                    .row
+                        .five.columns
+                            label Email:
+                            input(name='user[email]', value=user.email || '', type='text')
+                            label Password:
+                            input(name='user[password]', value=user.password || '', type='password')
+                            input(type='submit', value='Log In')
+        .four.columns
