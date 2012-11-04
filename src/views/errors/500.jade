@@ -1,1 +1,20 @@
-500
+extends ../layout
+
+block mainContent
+    header#header.row
+      .eight.columns
+        h1
+          a(href='#') Uh-Oh!
+        h4.subheader We ran into a problem.
+        .show-for-small.menu-action
+          a#sidebarButton.sidebar-button.small.secondary.button(href='#sidebar')
+            svg#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='18px', height='18px', viewbox='0 0 48 48', enable-background='new 0 0 48 48', xml:space='preserve')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='8.907', x2='48', y2='8.907')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='24.173', x2='48', y2='24.173')
+              line(fill='none', stroke='#000000', stroke-width='8', stroke-miterlimit='10', x1='0', y1='39.439', x2='48', y2='39.439')
+              | Menu
+    .row
+      section(role='main')
+        .row
+          .ten.columns
+                h5 There was an issue on the server!

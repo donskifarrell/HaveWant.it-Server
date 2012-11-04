@@ -13,6 +13,7 @@
     "connect-assetmanager-handlers" : "*",
     "express": "*",
     "jade": "*",
+    "eco": "*",
     "mongodb": "*",
     "mongoose": "*",
     "session-mongoose": "*"
