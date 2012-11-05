@@ -151,12 +151,8 @@ html(lang='en')
             a(href='#') Add New Category
       a.close-reveal-modal ×
 
-    != js('templates/login')
-    != js('templates/item')
-
     != js('lib/zurb/foundation.min')
     != js('lib/zurb/zurb.mega-drop')
-    != js('lib/zurb/app')
-    != js('lib/backbone/underscore')
-    != js('lib/backbone/backbone')
-    != js('havewant')
+    != js('lib/zurb/zurbinit')
+    != js('lib/require/require', { datamain: 'js/havewant', loadAll: true})
+   

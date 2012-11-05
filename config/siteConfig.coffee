@@ -10,7 +10,7 @@ module.exports = (server, express, sessionStore, envConf) ->
         match: /\.eco$/
         compileSync: (sourcePath, source) ->
           fileName = path.basename sourcePath, '.eco'
-          directoryName = (path.dirname sourcePath).replace "#{__dirname}/assets/templates", ""
+          directoryName = (path.dirname sourcePath).replace "#{__dirname}/assets/views", ""
           jstPath = fileName
           """
           (function() {
@@ -37,6 +37,7 @@ module.exports = (server, express, sessionStore, envConf) ->
       secret: envConf.sessionSecret
     )
     server.use connectAssets
+
     server.use express.static(__dirname + "./../public",
       maxAge: 86400000
     )
