@@ -1,8 +1,8 @@
 require.config
   paths:
     jQuery: "lib/jquery/jquery"
-    underscore: "lib/underscore/underscore"
-    backbone: "libs/backbone/backbone"
+    underscore: "lib/backbone/underscore"
+    backbone: "lib/backbone/backbone"
     templates: "../views"    
 
   shim:
@@ -16,7 +16,7 @@ require.config
       deps: ["jQuery", "underscore"]
       exports: "Backbone"
 
-require ["jQuery"], ($) ->
+require ["jQuery", "backbone"], ($, Backbone) ->
 	window.HaveWant =
 		Models: {}
 		Collections: {}
@@ -24,17 +24,42 @@ require ["jQuery"], ($) ->
 		Routers: {}
 
 		init: -> 
-			# Models
-			map = new HaveWant.Models.Map
-			gig = new HaveWant.Models.Gig
+			this.Models = {
+				map: new HaveWant.Models.Map
+				gig: new HaveWant.Models.Gig
+			}
 
-			# Collections
-			gigs = new HaveWant.Collections.Gigs()
+			this.Collections = {
+				gigs: new HaveWant.Collections.Gigs()
+			}
 
-			# Views
-			new HaveWant.Views.MapView({ model: map })
-			new HaveWant.Views.GigsView({ model: map, collection: gigs })
-			new HaveWant.Views.NavBarView({ el: $("#search_gigs"), collection: gigs })
+			this.Views = {
+				login: new HaveWant.Views.GigsView({ model: this.Models.map, collection: this.Collections.gigs }),
+				register: new HaveWant.Views.NavBarView({ el: $("#search_gigs"), collection: this.Collections.gigs })
+			}
+
+			this.Routers = { appRouter: new HaveWant.AppRouter }
+
+	window.HaveWant.AppRouter = Backbone.Router.extend(
+		routes:
+			additem: "addNewItem"
+			useCamera: "useCamera"
+			useGallery: "useGallery"
+			"*actions": "showHomePage"
+
+		addNewItem: ->
+			addNewItem.render()
+
+		useCamera: ->
+			cameraImages.render()
+
+		useGallery: ->
+			galleryImages.render()
+
+		showHomePage: (actions) ->
+			homePage.render()
+	)
 
 	$(document).ready ->
 		HaveWant.init()
+		Backbone.history.start()
