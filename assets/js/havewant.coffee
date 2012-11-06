@@ -16,7 +16,10 @@ require.config
       deps: ["jQuery", "underscore"]
       exports: "Backbone"
 
-require ["jQuery", "backbone"], ($, Backbone) ->
+require ["jQuery", "backbone", 
+		"models/User", "models/Item", "collections/Items",
+		"views/Login/Login", "views/Login/Register", "views/Items/ItemsPage"], 
+($, Backbone, User, Item, Items, Login, Register, ItemsPage) ->
 	window.HaveWant =
 		Models: {}
 		Collections: {}
@@ -25,25 +28,25 @@ require ["jQuery", "backbone"], ($, Backbone) ->
 
 		init: -> 
 			this.Models = {
-				User: new HaveWant.Models.User
-				Item: new HaveWant.Models.Item
+				User: new User
+				Item: new Item
 			}
 
 			this.Collections = {
-				Items: new HaveWant.Collections.Items
+				Items: new Items
 			}
 
 			this.Views = {
-				LoginView: new HaveWant.Views.Login({ el: $(".content"), model: this.Models.User }),
-				RegisterView: new HaveWant.Views.Register({ el: $(".content"), model: this.Models.User }),	
-				ItemsPage: new HaveWant.Views.ItemsPage({ el: $(".content"), collection: this.Collections.Items })
+				LoginView: new Login({ el: $(".content"), model: this.Models.User }),
+				RegisterView: new Register({ el: $(".content"), model: this.Models.User }),	
+				ItemsPage: new ItemsPage({ el: $(".content"), collection: this.Collections.Items })
 			}
 
 			this.Routers = { 
-				appRouter: new HaveWant.AppRouter 
+				appRouter: new HaveWant.Routers.AppRouter 
 			}
 
-	window.HaveWant.AppRouter = Backbone.Router.extend(
+	class HaveWant.Routers.AppRouter extends Backbone.Router
 		routes:
 			'/': 'home'
 			'login': 'login'
@@ -58,7 +61,6 @@ require ["jQuery", "backbone"], ($, Backbone) ->
 
 		viewRender: (view) ->
 			new view().render()
-	)
 
 	$(document).ready ->
 		HaveWant.init()
