@@ -25,39 +25,39 @@ require ["jQuery", "backbone"], ($, Backbone) ->
 
 		init: -> 
 			this.Models = {
-				map: new HaveWant.Models.Map
-				gig: new HaveWant.Models.Gig
+				User: new HaveWant.Models.User
+				Item: new HaveWant.Models.Item
 			}
 
 			this.Collections = {
-				gigs: new HaveWant.Collections.Gigs()
+				Items: new HaveWant.Collections.Items
 			}
 
 			this.Views = {
-				login: new HaveWant.Views.GigsView({ model: this.Models.map, collection: this.Collections.gigs }),
-				register: new HaveWant.Views.NavBarView({ el: $("#search_gigs"), collection: this.Collections.gigs })
+				LoginView: new HaveWant.Views.Login({ el: $(".content"), model: this.Models.User }),
+				RegisterView: new HaveWant.Views.Register({ el: $(".content"), model: this.Models.User }),	
+				ItemsPage: new HaveWant.Views.ItemsPage({ el: $(".content"), collection: this.Collections.Items })
 			}
 
-			this.Routers = { appRouter: new HaveWant.AppRouter }
+			this.Routers = { 
+				appRouter: new HaveWant.AppRouter 
+			}
 
 	window.HaveWant.AppRouter = Backbone.Router.extend(
 		routes:
-			additem: "addNewItem"
-			useCamera: "useCamera"
-			useGallery: "useGallery"
-			"*actions": "showHomePage"
+			'/': 'home'
+			'login': 'login'
+			'register': 'register'
+			'items': 'items'
 
-		addNewItem: ->
-			addNewItem.render()
+		home: ->
+			require(['home'], this.viewRender)
 
-		useCamera: ->
-			cameraImages.render()
+		register: (actions) ->
+			require(['login'], this.viewRender)
 
-		useGallery: ->
-			galleryImages.render()
-
-		showHomePage: (actions) ->
-			homePage.render()
+		viewRender: (view) ->
+			new view().render()
 	)
 
 	$(document).ready ->
