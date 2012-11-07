@@ -1,7 +1,7 @@
-define(['backbone', 'text!views/Login/LoginT.js'], (Backbone, login) ->
+define(['backbone', 'views/Login/LoginTemplate'], (Backbone) ->
 	class Login extends Backbone.View
-		template: _.template(login)
+		template: JST.LoginTemplate
 
 		render: ->
-			return this.template(this.model)
+			$(this.el).append(this.template(this.model))
 )

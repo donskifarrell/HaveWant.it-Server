@@ -3,6 +3,7 @@ require.config
     jQuery: "lib/jquery/jquery"
     underscore: "lib/backbone/underscore"
     backbone: "lib/backbone/backbone"
+    text: 'lib/require/text'
     templates: "../views"    
 
   shim:
@@ -29,17 +30,17 @@ require ["jQuery", "backbone",
 		init: -> 
 			this.Models = {
 				User: new User
-				Item: new Item
+				#Item: new Item
 			}
 
 			this.Collections = {
-				Items: new Items
+				#Items: new Items
 			}
 
 			this.Views = {
 				LoginView: new Login({ el: $(".content"), model: this.Models.User }),
-				RegisterView: new Register({ el: $(".content"), model: this.Models.User }),	
-				ItemsPage: new ItemsPage({ el: $(".content"), collection: this.Collections.Items })
+				#RegisterView: new Register({ el: $(".content"), model: this.Models.User }),	
+				#ItemsPage: new ItemsPage({ el: $(".content"), collection: this.Collections.Items })
 			}
 
 			this.Routers = { 
@@ -49,12 +50,16 @@ require ["jQuery", "backbone",
 	class HaveWant.Routers.AppRouter extends Backbone.Router
 		routes:
 			'/': 'home'
-			'login': 'login'
+			'logintest': 'logintest'
 			'register': 'register'
 			'items': 'items'
+			'*actions': 'logintest'
 
 		home: ->
 			require(['home'], this.viewRender)
+
+		logintest: (actions) ->
+			HaveWant.Views.LoginView.render()
 
 		register: (actions) ->
 			require(['login'], this.viewRender)
