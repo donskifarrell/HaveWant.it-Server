@@ -1,9 +1,11 @@
 module.exports = (server, express, sessionStore, envConf) ->
   config = this
   
+  # For compiling JAde assets for client side template: https://gist.github.com/834768 possibly
   # Setup Asset Management
   eco = require("eco")
   path = require('path')
+  jadeAssets = require('connect-assets-jade')
   connectAssets = require("connect-assets")(
     jsCompilers:
       eco:
@@ -18,6 +20,10 @@ module.exports = (server, express, sessionStore, envConf) ->
             this.JST['#{jstPath}'] = #{eco.precompile source}
           }).call(this);
           """
+      jade:
+        jadeAssets(
+          templateNamePattern: /^.*\/assets\/js\/views[\/A-z]*\/(.*)\.jade/
+        )
   )
 
   assetManager = require("connect-assetmanager")

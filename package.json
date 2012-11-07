@@ -9,6 +9,7 @@
     "less" : "*",
     "connect" : "*",
     "connect-assets" : "*",
+    "connect-assets-jade" : "*",
     "connect-assetmanager" : "*",
     "connect-assetmanager-handlers" : "*",
     "express": "*",

@@ -1,0 +1,15 @@
+.row
+  .two.columns
+  .six.columns
+      .panel#loginPanel
+          h3 Login
+          hr
+          form.users(method='post', action='/Login')
+              .row
+                  .five.columns
+                      label Email:
+                      input(name='user[email]', value='user', type='text')
+                      label Password:
+                      input(name='user[password]', value='pass12343', type='password')
+                      input(type='submit', value='Log In')
+  .four.columns
